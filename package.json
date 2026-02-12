@@ -1,0 +1,26 @@
+{
+  "name": "automation-action-custom-ui",
+  "version": "2.0.17",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "npm@11.6.2",
+  "workspaces": [
+    "static/project-lead",
+    "static/project-roles"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "eslint src/**/*"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "turbo": "^2.4.0"
+  },
+  "dependencies": {
+    "@forge/api": "^7.0.1",
+    "@forge/resolver": "1.7.1"
+  }
+}

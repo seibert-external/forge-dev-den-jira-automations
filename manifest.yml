@@ -1,0 +1,94 @@
+modules:
+  automation:actionProvider:
+    - key: action-provider
+      actions:
+        - get-project-lead
+        - get-project-role-members
+  action:
+    - key: get-project-lead
+      name: Get Project Lead
+      function: get-project-lead-fn
+      description: Action that returns the project lead
+      config:
+        resource: project-lead-resource
+      inputs:
+        project:
+          title: Project ID or Key
+          type: string
+          description: The ID or Key of the project we are going to find the lead for
+          required: true
+      outputs:
+        email:
+          description: The lead's email
+          type: string
+          nullable: false
+      outputContext:
+        entityName: lead
+        outputType: OBJECT
+        outputDomain: project
+      actionVerb: GET
+      resolver:
+        function: automation-resolver
+    - key: get-project-role-members
+      name: Get Project Role Members
+      function: get-p-role-members-fn
+      description: Action that returns the email addresses of all members in a project role
+      config:
+        resource: project-roles-resource
+      inputs:
+        project:
+          title: Project ID or Key
+          type: string
+          description: The ID or Key of the project
+          required: true
+        roleName:
+          title: Project Role Name
+          type: string
+          description: The name of the project role (e.g. Member, Administrator, Viewer)
+          required: true
+      outputs:
+        email:
+          description: The member's email
+          type: string
+          nullable: false
+      outputContext:
+        entityName: member
+        outputType: LIST
+        outputDomain: project
+      actionVerb: GET
+      resolver:
+        function: automation-resolver
+  function:
+    - key: get-project-lead-fn
+      handler: index.getProjectLead
+    - key: get-p-role-members-fn
+      handler: index.getProjectRoleMembers
+    - key: automation-resolver
+      handler: index.handler
+app:
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/${FORGE_APP_ID}
+resources:
+  - key: project-lead-resource
+    path: static/project-lead/build
+    tunnel:
+      port: 5173
+  - key: project-roles-resource
+    path: static/project-roles/build
+    tunnel:
+      port: 5174
+permissions:
+  scopes:
+    - write:jira-work
+    - read:jira-work
+    - read:jira-user
+    - read:email-address:jira
+  content:
+    styles:
+      - unsafe-inline
+environment:
+  variables:
+    - FORGE_APP_ID
