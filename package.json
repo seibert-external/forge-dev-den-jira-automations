@@ -6,8 +6,7 @@
   "private": true,
   "packageManager": "npm@11.6.2",
   "workspaces": [
-    "static/project-lead",
-    "static/project-roles"
+    "static/web"
   ],
   "scripts": {
     "dev": "turbo dev",

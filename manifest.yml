@@ -10,7 +10,7 @@ modules:
       function: get-project-lead-fn
       description: Action that returns the project lead
       config:
-        resource: project-lead-resource
+        resource: web-resource
       inputs:
         project:
           title: Project ID or Key
@@ -34,7 +34,7 @@ modules:
       function: get-p-role-members-fn
       description: Action that returns the email addresses of all members in a project role
       config:
-        resource: project-roles-resource
+        resource: web-resource
       inputs:
         project:
           title: Project ID or Key
@@ -72,14 +72,10 @@ app:
     architecture: arm64
   id: ari:cloud:ecosystem::app/${FORGE_APP_ID}
 resources:
-  - key: project-lead-resource
-    path: static/project-lead/build
+  - key: web-resource
+    path: static/web/build
     tunnel:
       port: 5173
-  - key: project-roles-resource
-    path: static/project-roles/build
-    tunnel:
-      port: 5174
 permissions:
   scopes:
     - write:jira-work

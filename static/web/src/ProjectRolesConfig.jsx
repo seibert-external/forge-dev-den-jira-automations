@@ -19,7 +19,11 @@ const fieldRequiredValidator = (value) => {
   return;
 }
 
-function App() {
+/**
+ * Configuration form for the "Get Project Role Members" automation action.
+ * Renders text fields for the project key/ID and the role name.
+ */
+function ProjectRolesConfig() {
   const formRef = useRef(null);
   const [formData, setFormData] = useState(null);
   const [isValidating, setIsValidating] = useState(false);
@@ -114,4 +118,4 @@ function App() {
   );
 }
 
-export default App;
+export default ProjectRolesConfig;

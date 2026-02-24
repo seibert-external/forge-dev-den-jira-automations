@@ -19,7 +19,11 @@ const fieldRequiredValidator = (value) => {
   return;
 }
 
-function App() {
+/**
+ * Configuration form for the "Get Project Lead" automation action.
+ * Renders a single text field for the project key or ID.
+ */
+function ProjectLeadConfig() {
   const formRef = useRef(null);
   const [formData, setFormData] = useState(null);
   const [isValidating, setIsValidating] = useState(false);
@@ -94,4 +98,4 @@ function App() {
   );
 }
 
-export default App;
+export default ProjectLeadConfig;
