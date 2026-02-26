@@ -49,20 +49,6 @@ The `manifest.yml` references `FORGE_APP_ID` as an environment variable. Export 
 export FORGE_APP_ID=12345678-1234-1234-1234-123456789012
 ```
 
-## Development
-
-Start all Custom UI dev servers:
-
-```sh
-npm run dev
-```
-
-Then run the Forge tunnel in a separate terminal:
-
-```sh
-forge tunnel
-```
-
 ## Build and Deploy
 
 ```sh
@@ -77,3 +63,17 @@ forge install
 ```
 
 Once installed, subsequent `forge deploy` commands push updates without reinstalling. If you change permission scopes in `manifest.yml`, run `forge install --upgrade` to apply them.
+
+## Development
+
+Start all Custom UI dev servers:
+
+```sh
+npm run dev
+```
+
+Then run the Forge tunnel in a separate terminal:
+
+```sh
+forge tunnel
+```
