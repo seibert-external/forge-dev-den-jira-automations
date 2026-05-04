@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "packageManager": "npm@11.6.2",
+  "packageManager": "npm@11.13.0",
   "workspaces": [
     "static/web"
   ],
@@ -16,10 +16,10 @@
   "devDependencies": {
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "turbo": "^2.4.0"
+    "turbo": "^2.9.9"
   },
   "dependencies": {
-    "@forge/api": "^7.0.1",
-    "@forge/resolver": "1.7.1"
+    "@forge/api": "^7.0.2",
+    "@forge/resolver": "1.8.0"
   }
 }
