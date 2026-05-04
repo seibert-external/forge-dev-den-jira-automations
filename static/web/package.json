@@ -6,7 +6,7 @@
     "@atlaskit/css-reset": "^6.6.2",
     "@atlaskit/form": "^9.0.10",
     "@atlaskit/textfield": "^6.0.1",
-    "@forge/bridge": "5.12.0",
+    "@forge/bridge": "5.16.0",
     "react": "^16",
     "react-dom": "^16",
     "styled-components": "^6.1.19"
